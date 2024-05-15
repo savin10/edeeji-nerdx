@@ -9,14 +9,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<String> _imageList = [
-    'assets/images/2.jpg',
-    'assets/images/3.jpg',
-    'assets/images/4.jpg',
-    'assets/images/5.jpg',
-    'assets/images/6.jpg',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -27,7 +19,7 @@ class _HomeState extends State<Home> {
             height: 300,
             autoPlay: true,
           ),
-          items: _imageList.map((imagePath) {
+          items: [2, 3, 4, 5, 6].map((i) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
@@ -35,10 +27,11 @@ class _HomeState extends State<Home> {
                     margin: const EdgeInsets.symmetric(horizontal: 5.0),
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(imagePath),
+                        image: AssetImage('assets/images/$i.jpg'),
                         fit: BoxFit.cover,
-                        colorFilter:
-                            ColorFilter.mode(Colors.white.withOpacity(0.80), BlendMode.softLight),
+                        colorFilter: ColorFilter.mode(
+                            Colors.white.withOpacity(0.80),
+                            BlendMode.softLight),
                       ),
                     ),
                     child: const Center(
@@ -75,12 +68,12 @@ class _HomeState extends State<Home> {
               Expanded(
                 child: TextField(
                   decoration: InputDecoration(
-                    hintText: 'Recherche',
-                    suffixIcon: const Icon(Icons.search),
+                    hintText: 'Search',
+                    suffixIcon: const Icon(Icons.voice_chat),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: const BorderSide(
-                        width: 0,
+                        width: 4,
                         style: BorderStyle.none,
                       ),
                     ),
@@ -90,7 +83,7 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        // GridView avec 2 colonnes
+        // gridview with 2 columns
         GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),

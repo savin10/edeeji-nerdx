@@ -10,14 +10,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // Ce widget est la racine de votre application.
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Démonstration Flutter',
+      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
       home: const Splash(),
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Widget StatefulWidget avec barre de navigation inférieure et sans barre d'application
+// stful widget with bottom bar and without appbar
 class Main extends StatefulWidget {
   const Main({super.key});
 
@@ -34,21 +34,17 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  final List<Widget> _pageList = [
+  final List _pageList = [
     const Home(),
     const Calendrier(),
     Container(color: Colors.green),
   ];
 
   int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _pageList,
-      ),
+      body: _pageList[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (int index) {
@@ -62,12 +58,12 @@ class _MainState extends State<Main> {
             label: 'Accueil',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: 'Calendrier',
+            icon: Icon(Icons.business),
+            label: ' ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Paramètres',
+            icon: Icon(Icons.school),
+            label: ' ',
           ),
         ],
       ),

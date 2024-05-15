@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Calendrier extends StatefulWidget {
   const Calendrier({super.key});
@@ -10,41 +11,59 @@ class Calendrier extends StatefulWidget {
 class _CalendrierState extends State<Calendrier> {
   final DateTime firstDate = DateTime(2021, 1, 1);
   final DateTime lastDate = DateTime(2022, 12, 31);
-
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       children: [
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Calendrier des jours de marchés',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
-            Icon(Icons.calendar_today),
-          ],
-        ),
-        const SizedBox(height: 20),
-        DatePickerDialog(
-          initialDate: DateTime.now(),
-          firstDate: firstDate,
-          lastDate: lastDate,
-        ),
-        for (var i = 0; i < 3; i++)
-          const ListTile(
-            leading: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/market.jpg'),
-            ),
-            title: Text('Marché de Dantokpa'),
-            subtitle: Text('Explorez les produits locaux'),
-            trailing: Icon(Icons.shopping_cart),
+        const Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 10,
           ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Calendrier des jours de marchés',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              Icon(
+                Icons.voice_chat,
+              )
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        DatePickerDialog(firstDate: firstDate, lastDate: lastDate),
+        const ListTile(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage('assets/images/1.jpeg'),
+          ),
+          title: Text('Dantokpa'),
+          subtitle: Text('Marché de Dantokpa'),
+          trailing: Icon(Icons.voice_chat),
+        ),
+        const ListTile(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage('assets/images/1.jpeg'),
+          ),
+          title: Text('Dantokpa'),
+          subtitle: Text('Marché de Dantokpa'),
+          trailing: Icon(Icons.voice_chat),
+        ),
+        const ListTile(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage('assets/images/1.jpeg'),
+          ),
+          title: Text('Dantokpa'),
+          subtitle: Text('Marché de Dantokpa'),
+          trailing: Icon(Icons.voice_chat),
+        ),
       ],
     );
   }
