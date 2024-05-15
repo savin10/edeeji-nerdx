@@ -52,16 +52,16 @@ class _CalendrierState extends State<Calendrier> {
           leading: CircleAvatar(
             backgroundImage: AssetImage('assets/images/1.jpeg'),
           ),
-          title: Text('Dantokpa'),
-          subtitle: Text('Marché de Dantokpa'),
+          title: Text('Cococodji'),
+          subtitle: Text('Marché de Cococodji'),
           trailing: Icon(Icons.voice_chat),
         ),
         const ListTile(
           leading: CircleAvatar(
             backgroundImage: AssetImage('assets/images/1.jpeg'),
           ),
-          title: Text('Dantokpa'),
-          subtitle: Text('Marché de Dantokpa'),
+          title: Text('Houndjro'),
+          subtitle: Text('Marché de Houndjro'),
           trailing: Icon(Icons.voice_chat),
         ),
       ],
